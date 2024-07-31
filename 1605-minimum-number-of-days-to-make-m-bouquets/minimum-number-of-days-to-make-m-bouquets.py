@@ -6,27 +6,28 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        minvalue=min(bloomDay)
-        maxvalue=max(bloomDay)
-        n=len(bloomDay)
-        res=float("inf")
-        while minvalue<=maxvalue :
-            bouquets=0
+        minValue=min(bloomDay)
+        maxValue=max(bloomDay)
+        minDays=float('inf')
+        while minValue<=maxValue:
             count=0
-            mid=minvalue+(maxvalue-minvalue)//2
-            for j in range(n):
+            bouquets=0
+            mid=minValue+(maxValue-minValue)//2
+            for j in range(len(bloomDay)):
                 if bloomDay[j]<=mid:
                     count+=1
                 else:
                     count=0
                 if count>=k:
-
                     bouquets+=1
                     count=0
-            if bouquets >= m:
-                res=min(res,mid)
-                maxvalue=mid-1
+            if bouquets>=m:
+                minDays=min(minDays,mid)
+                maxValue=mid-1
             else:
-                minvalue=mid+1
-        return res if res< float("inf") else -1
+                minValue=mid+1
+        return minDays if minDays!=float('inf') else -1
+                
             
+
+        
