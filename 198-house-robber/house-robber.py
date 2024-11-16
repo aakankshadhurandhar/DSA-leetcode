@@ -4,8 +4,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        n=len(nums)+1
-        dp=[-1 for _ in range(n)]
+        n=len(nums)
+        dp=[-1]*n
         def solve(n,nums,dp):
             if n<0:
                 return 0
@@ -15,7 +15,6 @@ class Solution(object):
                 return dp[n]
             dp[n]=max(nums[n]+solve(n-2,nums,dp),solve(n-1,nums,dp))
             return dp[n]
-
-
         return solve(len(nums)-1,nums,dp)
+            
         
