@@ -77,7 +77,7 @@ class Solution(object):
         for i in range(n):
             if nums[i]>sub[i]:
                 return False
-        print(sub)
+     
         return True
         
         
